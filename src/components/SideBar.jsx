@@ -125,7 +125,7 @@ const SideBar = ({
             </li>
             <li>
               <a
-                href='https://www.buymeacoffee.com/eyuel'
+                href='https://mahdiar-vaez.vercel.app/'
                 rel='noreferrer'
                 target='_blank'>
                 <MdOutlineCoffee size={15} />
@@ -136,7 +136,7 @@ const SideBar = ({
               <a
                 rel='noreferrer'
                 target='_blank'
-                href='https://github.com/EyuCoder/chatgpt-clone'>
+                href='https://github.com/Mahdiar-Vaez/chat-bot'>
                 <AiOutlineGithub size={15} />
                 <p>گیت‌هاب</p>
               </a>
