@@ -207,11 +207,15 @@ const ChatView = ({ conversations, setConversations, currentConvId }) => {
         <div className="md:flex-row gap-1 flex flex-col items-stretch justify-between w-full">
           <textarea
             ref={inputRef}
-            className="w-full grow px-1 border bg-gray-800 resize-none border-gray-500 rounded-lg outline-none join-item max-h-[20rem] min-h-[3rem]"
+            className="w-full grow px-1 border bg-gray-400 resize-none border-gray-500 rounded-lg outline-none join-item max-h-[20rem] min-h-[3rem]"
+            style={{
+              backgroundColor: `var(--textarea-bg)`,
+              color: `var(--textarea-text)`,
+            }}
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
           />
-          <div className="flex items-center justify-end mr-4  gap-2">
+          <div className="flex items-center justify-end mr-4 gap-2">
             <button
               type="button"
               className={`px-2 h-full flex items-center justify-center `}

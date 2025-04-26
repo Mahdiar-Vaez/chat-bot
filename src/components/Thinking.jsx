@@ -9,7 +9,7 @@ const Thinking = () => {
         </div>
       </div>
       <div className='chat chat-start '>
-        <div className='chat-bubble animate-pulse'>thinking...</div>
+        <div className='chat-bubble animate-pulse'>در حال فکر کردن...</div>
       </div>
     </div>
   );

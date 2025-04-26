@@ -160,7 +160,7 @@ const SideBar = ({
         </section>
       ) : (
         <MdMenu
-          className='fixed bg-gray-700 text-gray-500 hover:bg-gray-600 cursor-pointer transition-all duration-300 left-0 top-0 z-50'
+          className='fixed  text-gray-500 hover:bg-gray-300 cursor-pointer transition-all duration-300 left-0 top-0 z-50'
           onClick={() => setOpen(!open)}
           size={32}
         />
