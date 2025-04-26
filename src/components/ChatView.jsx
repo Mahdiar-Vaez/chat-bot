@@ -3,8 +3,7 @@ import Message from "./Message";
 import Thinking from "./Thinking";
 import { MdSend, MdMic, MdMicOff } from "react-icons/md";
 import { replaceProfanities } from "no-profanity";
-import Modal from "./Modal";
-import Setting from "./Setting";
+
 
 const options = ["ChatGPT", "DALL·E"];
 const gptModel = ["gpt-3.5-turbo", "gpt-4"];
@@ -21,10 +20,7 @@ const template = [
     title: "ایده‌های کسب‌وکار",
     prompt: "۵ ایده کسب‌وکار جدید برای یک استارتاپ تولید کن.",
   },
-  {
-    title: "بازگشت چیست؟",
-    prompt: "بازگشت چیست؟ یک مثال در پایتون نشان بده.",
-  },
+
 ];
 
 const ChatView = ({ conversations, setConversations, currentConvId }) => {

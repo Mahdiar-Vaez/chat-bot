@@ -35,8 +35,17 @@ const SideBar = ({
     };
   }, [editingId]);
 
+  // Overlay for closing sidebar on outside click
+  const showOverlay = open && editingId === null && window.innerWidth <= 720;
+
   return (
     <>
+      {showOverlay && (
+        <div
+          className="fixed inset-0 z-40 bg-black bg-opacity-30"
+          onClick={() => setOpen(false)}
+        />
+      )}
       {open ? (
         <section
           className={`${
