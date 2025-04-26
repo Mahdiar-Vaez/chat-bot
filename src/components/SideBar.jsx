@@ -18,7 +18,7 @@ const SideBar = ({
   renameConversation,
   deleteConversation,
 }) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [editTitle, setEditTitle] = useState('');
 
