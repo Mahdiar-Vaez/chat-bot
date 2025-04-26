@@ -7,7 +7,6 @@ import {
   MdDelete,
 } from 'react-icons/md';
 import { AiOutlineGithub } from 'react-icons/ai';
-import { ChatContext } from '../context/chatContext';
 import bot from '../assets/logo.svg';
 import ToggleTheme from './ToggleTheme';
 
@@ -20,40 +19,48 @@ const SideBar = ({
   deleteConversation,
 }) => {
   const [open, setOpen] = useState(true);
-  const [modalOpen, setModalOpen] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [editTitle, setEditTitle] = useState('');
 
   function handleResize() {
+    // Prevent sidebar from closing while editing
+    if (editingId !== null) return;
     window.innerWidth <= 720 ? setOpen(false) : setOpen(true);
   }
 
   useEffect(() => {
-    window.addEventListener('resize',handleResize)
-    return ()=>{
-      window.removeEventListener('resize',handleResize)
-    }
-  }, []);
-  
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [editingId]);
 
   return (
     <>
       {open ? (
         <section
           className={`${
-            open ? 'fixed' : 'relative '
-          } bg-neutral md:static md:w-[25svw] w-[60svw]  z-50 flex transition-transform flex-col items-center gap-y-4 h-screen p-2 justify-between duration-100 shadow-md`}>
+            open ? 'fixed' : 'relative'
+          } bg-neutral md:static md:w-[25svw] w-[60svw] z-50 flex transition-transform flex-col items-center gap-y-4 h-screen p-2 justify-between duration-100 shadow-md`}
+        >
           <div className='flex relative top-1 items-center justify-between w-full px-2 mx-auto'>
             <div
-              className={` ${
+              className={`${
                 !open && 'scale-0 hidden'
-              } flex flex-row items-center gap-2 mx-auto w-full`}>
+              } flex flex-row items-center gap-2 mx-auto w-full`}
+            >
               <img src={bot} alt='logo' className='w-6 h-6' />
-              <h1 className={` ${!open && 'scale-0 hidden'}`}>چت بات </h1>
+              <h1 className={`${!open && 'scale-0 hidden'}`}>چت بات </h1>
             </div>
             <div
-              className='mx-auto btn btn-square btn-ghost'
-              onClick={() => setOpen(!open)}>
+              className={`mx-auto btn btn-square btn-ghost ${
+                editingId !== null ? 'pointer-events-none opacity-50' : ''
+              }`}
+              onClick={() => {
+                if (editingId === null) setOpen(!open);
+              }}
+              title={editingId !== null ? 'در حال ویرایش عنوان' : ''}
+            >
               {open ? <MdClose size={15} /> : <MdMenu size={15} />}
             </div>
           </div>
@@ -73,7 +80,8 @@ const SideBar = ({
                       e.preventDefault();
                       renameConversation(conv.id, editTitle || conv.title);
                       setEditingId(null);
-                    }}>
+                    }}
+                  >
                     <input
                       className='input input-bordered w-full'
                       value={editTitle}
@@ -89,7 +97,8 @@ const SideBar = ({
                     }`}
                     onClick={() => {
                       setCurrentConvId(conv.id);
-                    }}>
+                    }}
+                  >
                     <span className='truncate'>{conv.title}</span>
                     <div className='flex items-center gap-1'>
                       <button
@@ -99,7 +108,9 @@ const SideBar = ({
                           setEditingId(conv.id);
                           setEditTitle(conv.title);
                         }}
-                        title='تغییر نام'>
+                        title='تغییر نام'
+                        disabled={editingId !== null}
+                      >
                         ✏️
                       </button>
                       <button
@@ -108,7 +119,9 @@ const SideBar = ({
                           e.stopPropagation();
                           deleteConversation(conv.id);
                         }}
-                        title='حذف'>
+                        title='حذف'
+                        disabled={editingId !== null}
+                      >
                         <MdDelete size={15} />
                       </button>
                     </div>
@@ -119,7 +132,7 @@ const SideBar = ({
           </ul>
 
           {/* دکمه‌های قبلی سایدبار بدون تغییر */}
-          <ul className=' w-full gap-1 menu rounded-box'>
+          <ul className='w-full gap-1 menu rounded-box'>
             <li>
               <ToggleTheme open={open} />
             </li>
@@ -127,7 +140,8 @@ const SideBar = ({
               <a
                 href='https://mahdiar-vaez.vercel.app/'
                 rel='noreferrer'
-                target='_blank'>
+                target='_blank'
+              >
                 <MdOutlineCoffee size={15} />
                 <p>حمایت از پروژه</p>
               </a>
@@ -136,17 +150,17 @@ const SideBar = ({
               <a
                 rel='noreferrer'
                 target='_blank'
-                href='https://github.com/Mahdiar-Vaez/chat-bot'>
+                href='https://github.com/Mahdiar-Vaez/chat-bot'
+              >
                 <AiOutlineGithub size={15} />
                 <p>گیت‌هاب</p>
               </a>
             </li>
-       
           </ul>
         </section>
       ) : (
         <MdMenu
-          className='fixed bg-gray-700 text-gray-500 hover:bg-gray-600 cursor-pointer transition-all duration-300 rounded-lg left-1 top-1 z-50'
+          className='fixed bg-gray-700 text-gray-500 hover:bg-gray-600 cursor-pointer transition-all duration-300 left-0 top-0 z-50'
           onClick={() => setOpen(!open)}
           size={32}
         />

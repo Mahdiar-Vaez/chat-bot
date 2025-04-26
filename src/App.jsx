@@ -15,7 +15,7 @@ const App = () => {
     const saved = localStorage.getItem(LS_KEY);
     return saved
       ? JSON.parse(saved)
-      : [{ id: 1, title: 'New Chat', messages: [] }];
+      : [{ id: 1, title: 'اولین چت', messages: [] }];
   });
   const [currentConvId, setCurrentConvId] = useState(
     conversations[0]?.id || 1
@@ -31,7 +31,7 @@ const App = () => {
     const newId = Date.now();
     setConversations([
       ...conversations,
-      { id: newId, title: `Chat ${conversations.length + 1}`, messages: [] }
+      { id: newId, title: `چت ${conversations.length + 1}`, messages: [] }
     ]);
     setCurrentConvId(newId);
   };
