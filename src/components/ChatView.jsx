@@ -157,13 +157,13 @@ const ChatView = ({ conversations, setConversations, currentConvId }) => {
           onClick={() => setGpt(gptModel[0])}
           className={`${gpt == gptModel[0] && "tab-active"} tab`}
         >
-          جی‌پی‌تی ۳.۵
+            جی پی تی 4
         </a>
         <a
           onClick={() => setGpt(gptModel[1])}
           className={`${gpt == gptModel[1] && "tab-active"} tab`}
         >
-          جی‌پی‌تی ۴
+          جمینای 1.5 فلش
         </a>
       </div>
 
