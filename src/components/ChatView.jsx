@@ -75,7 +75,7 @@ const ChatView = ({ conversations, setConversations, currentConvId }) => {
         const apiUrl =
           gpt === gptModel[0]
             ? `https://api4dev.ir/ai/?text=${encodeURIComponent(cleanPrompt)}`
-            : `http://moorgh2.dnslab.link/?text=${encodeURIComponent(
+            : `https://api.api4dev.ir/gemini_proxy?text=${encodeURIComponent(
                 cleanPrompt
               )}`;
         const response = await fetch(apiUrl, { method: "GET" });
