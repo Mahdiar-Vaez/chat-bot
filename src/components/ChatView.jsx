@@ -4,7 +4,7 @@ import Thinking from "./Thinking";
 import { MdSend, MdMic, MdMicOff } from "react-icons/md";
 import { replaceProfanities } from "no-profanity";
 
-
+const options=['gpt-4','gemini']
 const gptModel = ["gpt-4", "gemini"];
 const template = [
   {
@@ -27,6 +27,7 @@ const ChatView = ({ conversations, setConversations, currentConvId }) => {
   const inputRef = useRef();
   const [formValue, setFormValue] = useState("");
   const [thinking, setThinking] = useState(false);
+  const [selected, setSelected] = useState(options[0]);
   const [gpt, setGpt] = useState(gptModel[0]);
   const [isListening, setIsListening] = useState(false);
   const recognition = useRef(null);
