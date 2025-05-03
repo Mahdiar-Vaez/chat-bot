@@ -151,7 +151,7 @@ const ChatView = ({ conversations, setConversations, currentConvId }) => {
   };
 
   return (
-    <main className="relative flex flex-col h-screen p-1 overflow-hidden dark:bg-light-grey">
+    <main className="relative flex flex-col h-[100svh] p-1 overflow-hidden dark:bg-light-grey">
       <div className="mx-auto my-4 tabs tabs-boxed w-fit">
         <a
           onClick={() => setGpt(gptModel[0])}
