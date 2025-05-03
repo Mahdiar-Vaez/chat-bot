@@ -21,22 +21,20 @@ const Message = (props) => {
         ai ? "flex-row-reverse justify-end" : "flex-row justify-end"
       }`}
     >
-      {selected === "DALL·E" && ai ? (
-        <Image url={text} />
-      ) : (
+      
         <div
           className={` w-screen overflow-hidden chat ${
             ai ? "chat-start" : "chat-end"
           }`}
         >
-          <div className="chat-bubble text-neutral-content">
+          <div className="chat-bubble text-neutral-content break-all">
             <Markdown markdownText={text} />
             <div className={`${ai ? "text-left" : "text-right"} text-xs`}>
               {moment(createdAt).calendar()}
             </div>
           </div>
         </div>
-      )}
+    
 
       <div className="avatar">
         <div className=" border rounded-full border-slate-400">

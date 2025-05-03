@@ -196,13 +196,14 @@ const ChatView = ({ conversations, setConversations, currentConvId }) => {
         <span ref={messagesEndRef}></span>
       </section>
       <form
-        className="flex flex-col mb-2 md:px-32 join sm:flex-row"
+        className="flex flex-col mb-2 px-4 py-1  md:px-32  sm:flex-row"
         onSubmit={sendMessage}
+        onKeyDown={handleKeyDown}
       >
-        <div className="md:flex-row gap-1 flex flex-col items-stretch justify-between w-full">
+        <div className="md:flex-row gap-1 flex flex-col  items-stretch justify-between w-full">
           <textarea
             ref={inputRef}
-            className="w-full grow px-1 border bg-gray-400 resize-none border-gray-500 rounded-lg outline-none join-item max-h-[20rem] min-h-[3rem]"
+            className="w-full grow px-1 border sm:h-24 h-20 bg-gray-400 rounded-lg max-sm:sticky bottom-0 resize-none border-gray-500  outline-none join-item max-h-[20rem] min-h-[3rem]"
             style={{
               backgroundColor: `var(--textarea-bg)`,
               color: `var(--textarea-text)`,
