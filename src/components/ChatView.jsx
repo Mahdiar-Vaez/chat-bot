@@ -203,7 +203,7 @@ const ChatView = ({ conversations, setConversations, currentConvId }) => {
         <div className="md:flex-row gap-1 flex flex-col  items-stretch justify-between w-full">
           <textarea
             ref={inputRef}
-            className="w-full grow px-1 border sm:h-24 h-20 bg-gray-400 rounded-lg max-sm:sticky bottom-0 resize-none border-gray-500  outline-none join-item max-h-[20rem] min-h-[3rem]"
+            className="w-full p-2 grow px-1 border sm:h-24 h-20 bg-gray-400 rounded-lg max-sm:sticky bottom-0 resize-none border-gray-500  outline-none join-item max-h-[20rem] min-h-[3rem]"
             style={{
               backgroundColor: `var(--textarea-bg)`,
               color: `var(--textarea-text)`,
