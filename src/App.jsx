@@ -52,7 +52,7 @@ const App = () => {
     setConversations(newConvs);
     setCurrentConvId(newConvs[0].id);
   };
-
+console.log('hi im new commit')
   return (
     <>
       <ChatContextProvider>
